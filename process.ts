@@ -4,9 +4,9 @@ import * as base64 from "https://denopkg.com/chiefbiiko/base64/mod.ts";
 
 
 export class TwilioSMS {
-    private authorizationHeader: string;
+    public authorizationHeader: string;
   
-    constructor(private accountSID: string, keySID: string, secret: string) {
+    constructor(public accountSID: string, keySID: string, secret: string) {
         this.authorizationHeader = 'Basic ' + base64.fromUint8Array(new TextEncoder().encode(keySID + ':' + secret));
     }
 
