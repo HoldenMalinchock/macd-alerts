@@ -10,7 +10,7 @@ export class TwilioSMS {
         this.authorizationHeader = 'Basic ' + base64.fromUint8Array(new TextEncoder().encode(keySID + ':' + secret));
     }
 
-    private postSMSRequest(payload: SMSRequest): Promise<string> {
+    public postSMSRequest(payload: SMSRequest): Promise<string> {
         const request = fetch(
           'https://api.twilio.com/2010-04-01/Accounts/' +
             this.accountSID +
@@ -62,7 +62,7 @@ serve((req: Request) => {
     };
        
     const helper = new TwilioSMS(accountSid, keySid, secret);
-    helper.sendSms(message)
+    helper.postSMSRequest(message)
 
     new Response('Message Send!')
 });
