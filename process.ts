@@ -1,4 +1,4 @@
-import { SMSRequest } from './types/message';
+import { SMSRequest } from './types/message.ts';
 import { serve } from "https://deno.land/std@0.142.0/http/server.ts";
 import * as base64 from "https://denopkg.com/chiefbiiko/base64/mod.ts";
 
@@ -65,4 +65,4 @@ serve((req: Request) => {
     helper.sendSms(message)
 
     new Response('Message Send!')
-);
+});
